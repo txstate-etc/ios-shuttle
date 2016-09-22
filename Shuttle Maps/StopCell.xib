@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="StopCell" rowHeight="55" id="W59-Rd-6km" customClass="StopTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="55"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="W59-Rd-6km" id="dPD-hF-y0N">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="54"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="266" translatesAutoresizingMaskIntoConstraints="NO" id="oX7-aV-ky1">
+                        <rect key="frame" x="10" y="0.0" width="266" height="54"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.2 km" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QEE-IN-Nuw">
+                        <rect key="frame" x="190" y="34" width="78" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="78" id="9EL-Bg-r46"/>
+                            <constraint firstAttribute="height" constant="20" id="c6w-JC-hlh"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dropMenuArrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="DD4-dX-1Mh">
+                        <rect key="frame" x="276" y="0.0" width="44" height="54"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="44" id="P8o-X9-Ykm"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="oX7-aV-ky1" secondAttribute="trailing" constant="44" id="00W-4C-0uw"/>
+                    <constraint firstAttribute="trailing" secondItem="DD4-dX-1Mh" secondAttribute="trailing" id="ECA-RD-uAu"/>
+                    <constraint firstItem="oX7-aV-ky1" firstAttribute="top" secondItem="dPD-hF-y0N" secondAttribute="top" id="I0m-kz-FoZ"/>
+                    <constraint firstAttribute="bottom" secondItem="oX7-aV-ky1" secondAttribute="bottom" id="SqX-1J-Uj4"/>
+                    <constraint firstItem="oX7-aV-ky1" firstAttribute="leading" secondItem="dPD-hF-y0N" secondAttribute="leading" constant="10" id="cBb-xl-nun"/>
+                    <constraint firstAttribute="bottom" secondItem="DD4-dX-1Mh" secondAttribute="bottom" id="enz-Sz-Hp5"/>
+                    <constraint firstAttribute="bottom" secondItem="QEE-IN-Nuw" secondAttribute="bottom" id="mXd-ph-5h7"/>
+                    <constraint firstAttribute="trailing" secondItem="QEE-IN-Nuw" secondAttribute="trailing" constant="52" id="soi-GV-sC3"/>
+                    <constraint firstItem="DD4-dX-1Mh" firstAttribute="top" secondItem="dPD-hF-y0N" secondAttribute="top" id="vl4-Wu-aZD"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="stopDistance" destination="QEE-IN-Nuw" id="0g1-rc-fjN"/>
+                <outlet property="stopSelectedImage" destination="DD4-dX-1Mh" id="h86-Y0-snA"/>
+                <outlet property="stopTitle" destination="oX7-aV-ky1" id="xla-Jg-hXg"/>
+            </connections>
+            <point key="canvasLocation" x="226" y="286.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="dropMenuArrow.png" width="16" height="16"/>
+    </resources>
+</document>

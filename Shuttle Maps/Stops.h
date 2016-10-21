@@ -15,6 +15,7 @@
 
 -(instancetype)initAndThen:(void(^)(void))onComplete;
 
+-(NSArray*)getValidStops;
 -(NSArray*)getSortedListOfStopsWithNearest:(NSInteger)count toLocation:(CLLocation *)loc;
 
 @end

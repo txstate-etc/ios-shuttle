@@ -83,6 +83,12 @@
     }
 }
 
+-(void)setActive {
+    self.isActive = YES;
+    for (jStop* stop in self.routeStops) {
+        stop.isActive = YES;
+    }
+}
 
 - (UIColor *)colorWithHexString:(NSString *)stringToConvert
 {

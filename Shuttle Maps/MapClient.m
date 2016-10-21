@@ -251,6 +251,17 @@
     else [TxStateUtil objectWithUrlString:@"http://gato-docs.its.txstate.edu/transportation/app-data/routes.json" callback:work];
 }
 
+-(void)resetActiveRoutes {
+    NSArray* allroutes = [self.routes getListOfRoutes];
+    for (jRoute* r in allroutes) {
+        r.isActive = NO;
+    }
+    NSArray* allstops = [self.stops getValidStops];
+    for (jStop* s in allstops) {
+        s.isActive = NO;
+    }
+}
+
 #pragma-mark TableViewArray plist loaders
 -(NSArray *)tableBuildingsArray {
     if (_tableBuildingsArray) {

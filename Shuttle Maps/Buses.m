@@ -47,7 +47,7 @@
 }
 
 -(void)updateBusesWithDict:(NSDictionary *)buses {
-    
+    [self.client resetActiveRoutes];
     for (id bus in buses) {
         
         //***ALLOC THE MARKER AND JBUS IF NOT IN BUSESDIC***//
@@ -81,7 +81,7 @@
             abus.busRoute = busesRoute.routeID; //not sure why this is here yet, maybe ETA?
             
             //turn on route if there is GPS data for the route
-            busesRoute.isActive = YES;
+            [busesRoute setActive];
             
             if (busesRoute.isSelected) abus.marker.map = self.client.mapView;
             else abus.marker.map = nil;

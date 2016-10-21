@@ -28,5 +28,6 @@
 
 -(void)turnOnRoute:(GMSMapView *)MV;
 -(void)turnOffRoute;
+-(void)setActive;
 
 @end

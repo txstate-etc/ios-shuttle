@@ -52,5 +52,6 @@
 //For ETAS
 @property (weak,nonatomic) StopsScrollView *stopsScrollView;
 -(void)setSelectedStop:(MapNode*)stop;
+-(void)resetActiveRoutes;
 
 @end

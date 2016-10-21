@@ -55,14 +55,18 @@
     
 }
 
--(NSArray*)getSortedListOfStopsWithNearest:(NSInteger)count toLocation:(CLLocation *)loc {
+-(NSArray*)getValidStops {
     NSMutableArray *allValidStops = [[NSMutableArray alloc]init];
     for (jStop *stop in self.stopsDic.allValues) {
         if (stop.children.count != 0) {
             [allValidStops addObject:stop];
         }
     }
-    
+    return allValidStops;
+}
+
+-(NSArray*)getSortedListOfStopsWithNearest:(NSInteger)count toLocation:(CLLocation *)loc {
+    NSArray* allValidStops = [self getValidStops];
     if (!loc || loc.coordinate.latitude == 0.00f ) {
         return [allValidStops sortedArrayUsingDescriptors:@[self.sdactive, self.sdname]];
     } else {

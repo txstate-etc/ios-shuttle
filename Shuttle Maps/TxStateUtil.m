@@ -42,7 +42,7 @@
 }
 
 + (id) objectWithUrlString:(NSString *)url {
-    NSString* jsonString = [NSString stringWithContentsOfURL:[NSURL URLWithString:@""] encoding:NSUTF8StringEncoding error:nil];
+    NSString* jsonString = [NSString stringWithContentsOfURL:[NSURL URLWithString:url] encoding:NSUTF8StringEncoding error:nil];
     return [self objectWithJSON:jsonString];
 }
 

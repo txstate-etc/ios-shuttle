@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MapPage.h"
+#import "ViewController.h"
 
 //@protocol SlideOutMenuDelegate <NSObject>
 //-(void)slideMenuTouchedOutSideOfMenu;
@@ -31,6 +32,7 @@
 @property (strong,nonatomic) UIView *slidingMenu;
 @property (strong,nonatomic) UIScrollView *buttonBarScrollView;
 @property (strong,nonatomic) UIScrollView *scrollView;
+@property (weak,nonatomic) ViewController *mapController;
 
 -(void)addPage:(MapPage*)page with:(NSString*)title withIcon:(UIImage *)active andUnactiveIcon:(UIImage*)unactive;
 @property (strong,nonatomic) NSMutableArray *mapPages;

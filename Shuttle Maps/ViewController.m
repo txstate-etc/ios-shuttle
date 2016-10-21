@@ -25,9 +25,6 @@
 
 @property (strong,nonatomic) SlideOutMenu *slideOutMenu;
 
-@property (strong,nonatomic) UIView *mapSpace;
-@property (strong,nonatomic) GMSMapView *mapView;
-
 @property (strong,nonatomic) StopsScrollView *stopsScrollView;
 
 @property (strong,nonatomic) MapClient *mapClient;
@@ -56,20 +53,7 @@
 }
 
 -(CGFloat)spaceBetweenTopAndSlide {
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-        if(UIInterfaceOrientationIsPortrait(self.interfaceOrientation)) {
-            return 0;
-        } else if(UIInterfaceOrientationIsLandscape(self.interfaceOrientation)){
-            return 0;
-        }
-    } else {
-        if(UIInterfaceOrientationIsPortrait(self.interfaceOrientation)) {
-            return 450.0;
-        } else if(UIInterfaceOrientationIsLandscape(self.interfaceOrientation)){
-            return 280.0;
-        }
-    }
-    return 0;
+    return 100.0;
 }
 
 #pragma mark - GMSMAP Delagete
@@ -157,6 +141,7 @@
         
         self.slideOutMenu = [[SlideOutMenu alloc]init];
         [self.slideOutMenu createWithDimensions:self.view.bounds spaceBetweenTopAndSlide:[self spaceBetweenTopAndSlide] hightOfMenuWhenClosed:55];
+        self.slideOutMenu.mapController = self;
         //Load Pointers
         self.stopsScrollView = [[StopsScrollView alloc] init];
         [self.stopsScrollView drawSelfOnToView:self.view];

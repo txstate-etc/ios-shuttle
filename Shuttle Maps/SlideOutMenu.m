@@ -220,7 +220,8 @@
          usingSpringWithDamping:0.6 initialSpringVelocity:1.2f
                         options:0 animations:^{
                             _slidingMenu.frame = CGRectMake(0, _startingY, _slidingMenu.bounds.size.width, _slidingMenu.bounds.size.height);
-                        } completion:^(BOOL finished){
+                            self.mapController.mapView.frame = CGRectMake(0, 0, self.mapController.mapSpace.bounds.size.width, self.mapController.mapSpace.bounds.size.height);
+                       } completion:^(BOOL finished){
                             [self blackButtons:YES except:-1];
                             _isOpen = NO;
                         }];
@@ -231,6 +232,7 @@
          usingSpringWithDamping:0.6 initialSpringVelocity:1.2f
                         options:0 animations:^{
                             _slidingMenu.frame = CGRectMake(0, 0, _slidingMenu.bounds.size.width, _slidingMenu.bounds.size.height);
+                            self.mapController.mapView.frame = CGRectMake(0, 0, self.mapController.mapSpace.bounds.size.width, [self.mapController spaceBetweenTopAndSlide]);
                         } completion:^(BOOL finished){
                             _isOpen = YES;
                             [self blackButtons:NO except:self.lastButtonPressed];
@@ -266,45 +268,16 @@
 }
 
 - (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {
-    
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-        
         if (_isOpen) {
             if (point.y < 0) {
                 NSLog(@"close it now");
-                [self blackButtons:YES except:-1];
-                _isOpen = NO;
                 [self.slidingMenu endEditing:YES];
-                [UIView animateWithDuration:0.5 delay:0
-                     usingSpringWithDamping:0.6 initialSpringVelocity:1.2f
-                                    options:0 animations:^{
-                                        _slidingMenu.frame = CGRectMake(0, _startingY, _slidingMenu.bounds.size.width, _slidingMenu.bounds.size.height);
-                                    } completion:^(BOOL finished){
-                                        [self blackButtons:YES except:-1];
-                                    }];
-                
+                [self close];
             }
             return (point.y > 0);//return YES;
         } else {
             return (point.y > self.startingY);
         }
-        
-    } else {
-        /*Do iPad stuff here.*/
-        if (_isOpen) {
-            if (point.y < 0) {
-                NSLog(@"close it now");
-            }
-            return (point.y > 0);//return YES;
-        } else {
-            //NSLog(@"%f",point.y);
-            
-            return (point.y > self.startingY);
-        }
-    }
-    
-    //when its up point > 0
-    return YES;
 }
 
 

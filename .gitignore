@@ -1,2 +1,5 @@
 keys.plist
 .DS_Store
+xcuserdata/
+project.xcworkspace/
+*.xcuserstate
